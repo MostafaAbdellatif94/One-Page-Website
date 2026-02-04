@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazing Animals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            background: #2e8b57;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px;
+        }
+
+        h1, h2 {
+            color: #2e8b57;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 170px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        iframe {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation with Bookmarks -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#animals">Animals</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to the Amazing Animals Website</h1>
+        <p>Animals are fascinating creatures that live in every part of our planet. From the deepest oceans to the highest mountains, animals play an important role in nature and in our lives.</p>
+        <p>Explore some beautiful animal pictures, watch fun videos, and contact us to share your favorite animal!</p>
+    </section>
+
+    <!-- Pictures Section -->
+    <section id="animals">
+        <h2>Animal Gallery</h2>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d" alt="Lion">
+            <img src="https://images.unsplash.com/photo-1501706362039-c6b2a87f2b0b" alt="Elephant">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Dolphin">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Dog">
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="videos">
+        <h2>Animal Videos</h2>
+        <p>Enjoy watching these amazing animal videos!</p>
+
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/J---aiyznGQ" 
+            title="Funny Cats Video" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/aqz-KE-bpKQ" 
+            title="Nature Wildlife Video" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Tell us your favorite animal!</p>
+
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Favorite Animal:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Amazing Animals Website | Created for Web Design Project</p>
+    </footer>
+
+</body>
+</html>
 
