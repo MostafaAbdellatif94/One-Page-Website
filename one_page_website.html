@@ -11,6 +11,7 @@
             margin: 0;
             line-height: 1.6;
             scroll-behavior: smooth;
+            background-color: #f9f9f9;
         }
 
         nav {
@@ -19,6 +20,7 @@
             text-align: center;
             position: sticky;
             top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -36,18 +38,45 @@
             color: #2e8b57;
         }
 
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
         .gallery img {
             width: 250px;
             height: 170px;
             object-fit: cover;
-            margin: 10px;
             border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
 
         form input, form textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #246b45;
         }
 
         footer {
@@ -59,13 +88,82 @@
 
         iframe {
             max-width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox-content {
+            display: block;
+            margin: 60px auto 20px auto;
+            max-width: 80%;
+            max-height: 75vh;
+            border-radius: 10px;
+        }
+
+        .lightbox-caption {
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ccc;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            padding: 16px;
+            user-select: none;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            color: #ccc;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navigation with Bookmarks -->
     <nav>
         <a href="#home">Home</a>
         <a href="#animals">Animals</a>
@@ -73,45 +171,56 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Home Section -->
     <section id="home">
         <h1>Welcome to the Amazing Animals Website</h1>
         <p>Animals are fascinating creatures that live in every part of our planet. From the deepest oceans to the highest mountains, animals play an important role in nature and in our lives.</p>
         <p>Explore some beautiful animal pictures, watch fun videos, and contact us to share your favorite animal!</p>
     </section>
 
-    <!-- Pictures Section -->
     <section id="animals">
         <h2>Animal Gallery</h2>
         <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d" alt="Lion">
-            <img src="https://images.unsplash.com/photo-1501706362039-c6b2a87f2b0b" alt="Elephant">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Dolphin">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Dog">
+            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400"
+                 data-full="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=1200"
+                 alt="Lion"
+                 class="gallery-img">
+
+            <img src="https://images.unsplash.com/photo-1501706362039-c6b2a87f2b0b?w=400"
+                 data-full="https://images.unsplash.com/photo-1501706362039-c6b2a87f2b0b?w=1200"
+                 alt="Elephant"
+                 class="gallery-img">
+
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400"
+                 data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200"
+                 alt="Dolphin"
+                 class="gallery-img">
+
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400"
+                 data-full="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=1200"
+                 alt="Dog"
+                 class="gallery-img">
         </div>
     </section>
 
-    <!-- Video Section -->
     <section id="videos">
         <h2>Animal Videos</h2>
         <p>Enjoy watching these amazing animal videos!</p>
 
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/J---aiyznGQ" 
-            title="Funny Cats Video" 
-            frameborder="0" 
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/J---aiyznGQ"
+            title="Funny Cats Video"
+            frameborder="0"
             allowfullscreen>
         </iframe>
 
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/aqz-KE-bpKQ" 
-            title="Nature Wildlife Video" 
-            frameborder="0" 
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+            title="Nature Wildlife Video"
+            frameborder="0"
             allowfullscreen>
         </iframe>
     </section>
 
-    <!-- Contact Form Section -->
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Tell us your favorite animal!</p>
@@ -130,11 +239,19 @@
         </form>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Amazing Animals Website | Created for Web Design Project</p>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <span class="prev">&#10094;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Expanded image">
+        <span class="next">&#10095;</span>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script src="JS/one_page_website.js"></script>
 </body>
 </html>
-
