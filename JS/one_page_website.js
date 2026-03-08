@@ -7,10 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     images.forEach(function (image) {
         image.addEventListener("click", function () {
-            const fullImage = image.getAttribute("data-full");
-
             lightbox.style.display = "block";
-            lightboxImg.src = fullImage;
+            lightboxImg.src = image.getAttribute("data-full");
             lightboxImg.alt = image.alt;
             caption.textContent = image.alt;
         });
